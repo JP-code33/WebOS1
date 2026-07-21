@@ -1,8 +1,9 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    user-select: none;
 }
 
 body {
@@ -10,12 +11,10 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: url("./background.png");
-    background-size: cover;
-    background-position: center;
 }
 
-#top-bar{
+/* 🟦 TOP SYSTEM MENU BAR */
+#top-bar {
     position: absolute;
     top: 0;
     left: 0;
@@ -26,58 +25,112 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     padding: 0 30px;
-
     color: #ffffff;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#top-bar{
+#top-bar p {
     margin: 0;
     padding: 0;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 500;
 }
 
-.left-text, .right-text{
-    font-size: 18px;
-    font-weight: 500;
-}
-
-#desktop{
+/* 🌌 MAIN DESKTOP WALLPAPER LAYER */
+#desktop {
     width: 100%;
-    flex-grow: 1;
+    height: 100vh;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-image: url("./background.png");
+    background-size: cover;
+    background-position: center;
     padding: 20px;
+    padding-top: 45px;
 }
 
-.window-card{
-    width: 100%;
-    max-width: 550px;
-    background-color: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+/* 🎛️ SIDEBAR NAVIGATION DOCK */
+#side-dock {
     position: absolute;
-    left: calc(50% -275px);
-    top: calc(50% -300px);
-    overflow: hidden;
-    z-index: 10;
-    padding: 30px;
-    text-align: center;
+    left: 15px;
+    top: 65px;
     display: flex;
     flex-direction: column;
-    align-items: center;  
-    margin: auto;  
+    gap: 15px;
+    z-index: 500;
 }
 
+.shortcut-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    width: 65px;
+}
+
+.shortcut-icon .icon-img {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    transition: 0.2s;
+}
+
+.shortcut-icon:hover .icon-img {
+    background: rgba(255, 255, 255, 0.35);
+    transform: scale(1.05);
+}
+
+.shortcut-icon span {
+    color: white;
+    font-size: 11px;
+    margin-top: 4px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+/* 🪟 REUSABLE WINDOW CONTAINER CARD BLUEPRINT */
+.window-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    overflow: hidden;
+}
+
+/* 📍 WINDOW CARD 1: CUSTOM ANCHORS FOR THE SYSTEM PROFILE CARD */
+#window-welcome {
+    width: 100%;
+    max-width: 530px;
+    left: calc(50% - 290px);
+    top: calc(50% - 270px);
+    z-index: 10;
+}
+
+/* 📍 WINDOW CARD 2: CUSTOM ANCHORS FOR THE OUTBOARD CALENDAR CARD */
+#window-calendar {
+    width: 100%;
+    max-width: 360px; /* Slim and neat square layout proportions */
+    
+    /* 🚀 THIS LINE POSITION MAPS IT PERFECTLY TO THE RIGHT SIDE ON SCREEN! */
+    left: calc(50% + 280px); 
+    top: calc(50% - 240px);
+    
+    border: 2px solid #0077ff; /* Vivid neon blue outline coat frame! */
+    box-shadow: 0 20px 50px rgba(0, 119, 255, 0.2);
+    z-index: 20;
+}
+
+/* 🟦 SHARED APPLE MAC-STYLE TITLE BAR HEADER CONTROLLER */
 .window-header {
     background: #e2e8f0;
-    height: 38px;
+    height: 40px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -88,7 +141,7 @@ body {
     border-bottom: 1px solid #cbd5e1;
 }
 
-.traffic-lights { display: flex; gap: 7px; align-items: center;}
+.traffic-lights { display: flex; gap: 7px; align-items: center; }
 .traffic-lights .dot { width: 12px; height: 12px; border-radius: 50%; cursor: pointer; }
 .dot.red { background: #ff5f56; }
 .dot.yellow { background: #ffbd2e; }
@@ -97,27 +150,69 @@ body {
 .window-title {
     color: #475569;
     font-size: 13px;
+    font-weight: 600;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-weight: 600;
 }
-
 
 .window-content { padding: 25px; text-align: center; }
 
+.window-content h1 { font-size: 24px; color: #0059b3; font-weight: 700; margin-bottom: 6px; }
+.window-content h2 { font-size: 13px; color: #64748b; font-weight: normal; line-height: 1.5; margin-bottom: 15px; }
+
+.display-image { width: 100%; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.greeting { color: #0077ff; font-weight: bold; font-size: 16px; margin-bottom: 15px; }
+.link-buttons { display: flex; gap: 15px; justify-content: center; }
+
+.action-btn {
+    background-color: #0077ff;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 119, 255, 0.2);
+    cursor: pointer;
+}
+.action-btn:hover { background-color: #0059d6; }
+
+/* 🧱 CALENDAR GRID MATRIX CONFIGURATIONS */
+#calendar-month-year {
+    font-size: 20px;
+    color: #0059b3;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+#calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 clean columns side-by-side (Sun-Sat) */
+    gap: 6px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.calendar-day-name { font-weight: bold; color: #64748b; padding-bottom: 5px; }
+.calendar-date-cell { padding: 8px 0; color: #334155; border-radius: 6px; transition: background 0.2s; }
+.calendar-date-cell:hover { background: #f1f5f9; cursor: pointer; }
+.calendar-today { background: #0077ff !important; color: #ffffff !important; font-weight: bold; box-shadow: 0 4px 10px rgba(0, 119, 255, 0.3); }
+
+/* 📥 BOTTOM DESKTOP TASKBAR DOCK */
 #taskbar {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 50px;
-    background: rgba(0, 0, 0, 0.7);
+    height: 45px;
+    background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
     display: flex;
     align-items: center;
-    padding: 0 20px;
-    z-index: 1000;
+    padding-left: 20px;
 }
 
 .task-btn {
@@ -131,61 +226,4 @@ body {
     cursor: pointer;
 }
 
-.hidden { 
-    display: none !important; 
-}
-
-.window-card h1 {
-    color: #0059b3;
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-
-.window-card h2 {
-    color: #555555;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.window-card img {
-    width: 100%;
-    border-radius: 12px;
-    border: 1px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.greetings {
-    color: #0077ff;
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-.link-buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    width: 100%;
-}
-
-.button {
-    background-color: #0077ff;
-    color: #ffffff;
-    text-decoration: none;
-    padding: 10px 24px;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 119, 255, 0.3);
-    transition: all 0.2s ease;
-}
-
-.button:hover {
-    background-color: #0059d6;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15 px rgba(0, 119, 255, 0.4);
-}
+.hidden { display: none !important; }

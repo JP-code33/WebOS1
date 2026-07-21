@@ -14,35 +14,68 @@
         <p class="right-text">7/20/2026, 7:55:00 PM</p>
     </div>
 
+  
     <div id="desktop">
+        
+        
+        <div id="side-dock">
+            
+            <div class="shortcut-icon" onclick="toggleWin('window-welcome')">
+                <div class="icon-img">⚙️</div>
+                <span>Profile</span>
+            </div>
+            
+         
+            <div class="shortcut-icon" onclick="toggleWin('window-calendar')">
+                <div class="icon-img">📅</div>
+                <span>Calendar</span>
+            </div>
+        </div>
 
+       
         <div id="window-welcome" class="window-card">
-
             <div class="window-header">
                 <div class="traffic-lights">
                     <span class="dot red" onclick="toggleWin('window-welcome')"></span>
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                 </div>
-                <div class="window-title">System Status</div>
+                <div class="window-title">System Profile</div>
             </div>
-            
-            <h1>Welcome to my OS</h1>
-
-            <h2>
-                My name is Jhenil. I am here to learn new things about coding. I love to make projects and currently working on Jarvis. I also love Formula 1!
-            </h2>
-
-            <img src="./RB22 Wallpaper.jpg" />
-
-            <p class="greeting">Hello Everyone!</p>
-
-            <div class="link-buttons">
-                <a href="https://www.youtube.com/@JPCRICEDITZZ" class="button">YouTube</a>
-                <a href="https://formula1.com" class="button">Fomula 1</a>
-
+            <div class="window-content text-center">
+                <h1>Welcome to my OS</h1>
+                <h2>My name is Jhenil. I am here to learn coding. I love to make projects and currently working on Jarvis and I love formula 1!</h2>
+                <img src="./RB22 Wallpaper.jpg" alt="Red Bull F1 Car" class="display-image" />
+                <p class="greeting">Hello World!</p>
+                <div class="link-buttons">
+                    <a href="http://youtube.com" target="_blank" class="action-btn">📺 YouTube</a>
+                    <a href="https://formula1.com" target="_blank" class="action-btn">🏎️ Formula 1</a>
+                </div>
             </div>
         </div>
+
+        
+      
+        <div id="window-calendar" class="window-card hidden">
+            
+            
+            <div class="window-header">
+                <div class="traffic-lights">
+                    <span class="dot red" onclick="toggleWin('window-calendar')"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="window-title">Calendar System</div>
+            </div>
+            
+            
+            <div class="window-content">
+                <h1 id="calendar-month-year">Month Year</h1>
+                <div id="calendar-grid"></div>
+            </div>
+
+        </div>
+
     </div>
 
     <div id="taskbar"

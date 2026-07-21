@@ -1,0 +1,115 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url("./background.png");
+    background-size: cover;
+    background-position: center;
+}
+
+top-bar{
+    width: 100%;
+    height: 45px;
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 30px;
+
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+}
+
+.left-text, .right-text{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+desktop{
+    width: 100%;
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.window-card{
+    width: 100%;
+    max-width: 550px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+
+.window-card h1 {
+    color: #0059b3;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.window-card h2 {
+    color: #555555;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.window-card img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.greetings {
+    color: #0077ff;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.link-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+}
+
+.button {
+    background-color: #0077ff;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 119, 255, 0.3);
+    transition: all 0.2s ease;
+}
+
+.button:hover {
+    background-color: #0059d6;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15 px rgba(0, 119, 255, 0.4);
+}

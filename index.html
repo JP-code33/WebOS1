@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <Meta name="viewport" content="width=device-width, initial-sale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jhenil's OS</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,12 +11,22 @@
     
     <div id="top-bar">
         <p class="left-text">JPOS</p>
-        <p class="right-text">7/20/2026, 7:55</p>
+        <p class="right-text">7/20/2026, 7:55:00 PM</p>
     </div>
 
     <div id="desktop">
 
-        <div class="window-card">
+        <div id="window-welcome" class="window-card">
+
+            <div class="window-header">
+                <div class="traffic-lights">
+                    <span class="dot red" onclick="toggleWin('window-welcome')"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="window-title">System Status</div>
+            </div>
+            
             <h1>Welcome to my OS</h1>
 
             <h2>
@@ -35,6 +45,11 @@
         </div>
     </div>
 
+    <div id="taskbar"
+        <button class="task-btn" onclick="toggleWin('window-welcome')">🤖 Open Welcome Card</button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
